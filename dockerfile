@@ -17,6 +17,7 @@ RUN pdm install --check --prod --no-editable
 # run stage
 FROM python:$PYTHON_BASE
 
+WORKDIR /project
 # retrieve packages from build stage
 COPY --from=builder /project/.venv/ /project/.venv
 ENV PATH="/project/.venv/bin:$PATH"
